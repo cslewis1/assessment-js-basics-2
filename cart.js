@@ -7,11 +7,10 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
-    inside. 
+    inside.  
 
     Write a callback below that uses the reduce
     array method to calculate the sum of all
@@ -19,24 +18,24 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((a, c) => a + c.price, 0);
+console.log(summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +53,10 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) =>
+  cartTotal + cartTotal * tax - couponValue;
 
-
+console.log(calcFinalPrice(summedPrice, 5.0, 0.06));
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -79,7 +80,20 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    orderType = Used to identify if the order is dine-in or a to-go order.
+                Type of 'String('dine-in' or 'to-go') - Names or phrases have to be strings 
 
+    itemName = Used to identify the item in the cart by name
+                Type of 'String('dine-in' or 'to-go') - Names or phrases have to be strings
+
+    itemQuantity = Used to identify the quantity of the item to be purchased
+                    type of Number - Numbers are used to easily calculate totat of items.
+
+    itemPrice = Used to identify the price of the item
+                Type of number - Numbers are used for prices to be able to easily calculate totals or discounts. 
+
+    specialOrder = Used to specify any special directions such as 'No pickles', 'Light onions', or 'None
+                Type of array - Special directions can contain multiple phrases. 
 */
 
 /*
@@ -88,3 +102,33 @@ const cart = [
 */
 
 //CODE HERE
+const customerCart = [
+  {
+    orderType: "Dine-In",
+    itemName: "Mozarella Sticks",
+    itemQuantity: 1,
+    itemPrice: 9.99,
+    specialOrder: "None",
+  },
+  {
+    orderType: "Dine-In",
+    itemName: "Cauliflower Wings",
+    itemQuantity: 1,
+    itemPrice: 12.99,
+    specialOrder: "Mild Sauce",
+  },
+  {
+    orderType: "Dine-In",
+    itemName: "Sprite",
+    itemQuantity: 1,
+    itemPrice: 2.99,
+    specialOrder: "No ice",
+  },
+  {
+    orderType: "To-go",
+    itemName: "Cheese Burger Combo",
+    itemQuantity: 1,
+    itemPrice: 15.99,
+    specialOrder: "None",
+  },
+];
